@@ -20,7 +20,7 @@ public class Alumno implements Serializable{
 	private String apellido;
 	@Column(nullable = false,length = 100)
 	private String email;
-	private int telefono;
+	private String telefono;
 	private String dni;
 	private String fecha_nacimiento;
 	public String getDni() {
@@ -73,11 +73,13 @@ public class Alumno implements Serializable{
 		this.email = email;
 	}
 
-	public int getTelefono() {
+	
+
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

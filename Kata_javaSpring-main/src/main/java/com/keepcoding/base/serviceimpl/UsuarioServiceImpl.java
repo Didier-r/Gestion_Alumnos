@@ -1,26 +1,31 @@
 package com.keepcoding.base.serviceimpl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
+
+
 import com.keepcoding.base.entity.Usuarios;
 import com.keepcoding.base.repository.UsuarioRepository;
 import com.keepcoding.base.service.UsuarioService;
 
-import java.util.List;
-
 @Service
-public class UsuarioServiceImpl  implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService{
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Override
+	public Usuarios guardarUsuario(Usuarios usuarios) {
+		return usuarioRepository.save(usuarios);
+	}
 
 	@Override
-	public List<Usuarios> listaUsuario(String dato) {
-		if(dato != null) {
-			return usuarioRepository.filterName(dato);
-		}else {
-			return usuarioRepository.findAll();
-		}
+	public List<Usuarios> login(String username, String password) {
+		return usuarioRepository.findByUsernameAndPassword(username, password);
 	}
+
 }
