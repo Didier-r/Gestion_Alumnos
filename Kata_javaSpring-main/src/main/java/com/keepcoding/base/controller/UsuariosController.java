@@ -32,7 +32,7 @@ public class UsuariosController {
 	public String newAlumnoForm(Model modelo) {
 		Usuarios usuario =  new Usuarios();
 		modelo.addAttribute("usuario", usuario);
-		return "crear_usuario";
+		return "crearUsuario";
 	}
 	
 	@PostMapping("/usuario")
